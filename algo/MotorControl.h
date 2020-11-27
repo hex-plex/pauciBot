@@ -7,17 +7,16 @@ class MotorControl{
 		MotorControl(int EN_1, int EN_2, int MO_1,int MO_2, int PWM);
 		MotorControl(PIDController *pid);
 		MotorControl(bool a);
-		int control(int setpoint);
-		int encoder_pos=0;
+		int control(int set);
+		int *encoder_pos;
 		int thresh = 75;
-		void begin(void (MotorControl::*enc)(void));
-		void encoder();
+		void begin(int *enc);
+    int _en_1;
+    int _en_2;
 	private:
-		int _en_1;
-		int _en_2;
 		int _mo_1;
 		int _mo_2;
 		int _pwm;
 		int _curr_set=0;
-		PIDController* _pos_pid;
+		PIDController _pos_pid;
 };
