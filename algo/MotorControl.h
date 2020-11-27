@@ -10,7 +10,7 @@ class MotorControl{
 		int control(int setpoint);
 		int encoder_pos=0;
 		int thresh = 75;
-		void begin(void enc(void));
+		void begin(void (MotorControl::*enc)(void));
 		void encoder();
 	private:
 		int _en_1;

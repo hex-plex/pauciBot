@@ -54,13 +54,13 @@ MotorControl::MotorControl(bool a){
 		this->_pos_pid = &pos_pid; 
 	}
 }
-void MotorControl::begin(void enc(void) ){
+void MotorControl::begin(void (MotorControl::*enc)(void) ){
 	pinMode(this->_en_1, INPUT);
 	pinMode(this->_en_2, INPUT);
 	pinMode(this->_mo_1, OUTPUT);
 	pinMode(this->_mo_2, OUTPUT);
 	pinMode(this->_pwm, OUTPUT);
-	attachInterrupt(digitalPinToInterrupt(this->_en_1),enc,RISING);
+	attachInterrupt(digitalPinToInterrupt(this->_en_1),((void(*)())enc),RISING);
 	this->_curr_set = -1379;
 }
 void MotorControl::encoder(){
