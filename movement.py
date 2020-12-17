@@ -7,14 +7,10 @@ print(pClient)
 p.setAdditionalSearchPath(pybullet_data.getDataPath())
 p.loadURDF("plane.urdf")
 botpos=[0,0,0.1]
-bot = p.loadURDF("urdf/Paucibot.urdf",*botpos)
+bot = Bot()
+#bot = p.loadURDF("urdf/Paucibot.urdf",*botpos)
 p.setGravity(0,0,-10)
-numJoints = p.getNumJoints(bot)
-for joint in range(numJoints):
-	print(p.getJointInfo(bot,joint))
-wheels = [ 2, 5 ]
-targetVel = 15
-maxForce = 6
+print(bot.get_info())
 kp, kd, ki = 0.005, 0.005, 0.000
 init = time()
 target_pos = 0
