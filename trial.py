@@ -17,6 +17,7 @@ kp, kd, ki = 0.005, 0.005, 0.000
 init = time()
 target_pos = 0
 prev_error = None
+encoder_pos = [0,0]
 while(1):
 	orie = p.getBasePositionAndOrientation(bot)[1]
 	euler = p.getEulerFromQuaternion(orie)
@@ -26,10 +27,13 @@ while(1):
 	if prev_error is None:
 		prev_error = error
 	feedback = kp*error + kd*(error - prev_error)/dt + (ki*dt*error/abs(error+1e-6) if abs(error)<0.01 else 0)
-	print(feedback, pitch)
-	p.setJointMotorControl2(bot, wheels[0], p.VELOCITY_CONTROL, targetVelocity=-max(min(15,feedback),-15), force=maxForce)
-	p.setJointMotorControl2(bot, wheels[1], p.VELOCITY_CONTROL, targetVelocity=-max(min(15,feedback),-15), force=maxForce)
-
+	#print(feedback, pitch)
+	feedback/=500
+	encoder_pos[0]-=feedback
+	encoder_pos[1]-=feedback
+	p.setJointMotorControl2(bot, wheels[0], p.POSITION_CONTROL, targetPosition=encoder_pos[0], force=maxForce)# targetVelocity=-max(min(15,feedback),-15),)
+	p.setJointMotorControl2(bot, wheels[1], p.POSITION_CONTROL, targetPosition=encoder_pos[1], force=maxForce)# targetVelocity=-max(min(15,feedback),-15), )
+	print(list(p.getJointState(bot, wheel) for wheel in wheels))
 	p.stepSimulation()
 	sleep(0.05)
 	init = time()
