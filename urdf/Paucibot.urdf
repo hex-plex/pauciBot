@@ -1,7 +1,18 @@
 <?xml version="1.0"?>
 <!-- created with Phobos 1.0.1 "Capricious Choutengan" -->
   <robot name="Paucibot">
-
+    <material name="wood">
+      <color rgba="0.5 0.3 0.13 1.0"/>
+    </material>
+    <material name="tire">
+      <color rgba="0.1 0.1 0.1 1.0" />
+    </material>
+    <material name="white">
+      <color rgba="1.0 1.0 1.0 0.9" />
+    </material>
+    <material name="brack" >
+      <color rgba="0.8 0.4 0.11 1.0" />
+    </material>
     <link name="BaseLink">
       <inertial>
         <origin xyz="0 0 -0.00275" rpy="0 0 0"/>
@@ -13,6 +24,7 @@
         <geometry>
           <mesh filename="../meshes/stl/Circle.004.stl" scale="0.075 0.075 0.06329"/>
         </geometry>
+        <material name="wood"/>
       </visual>
       <collision name="lower_disc">
         <origin xyz="0 0 -0.00275" rpy="0 0 0"/>
@@ -33,6 +45,7 @@
         <geometry>
           <mesh filename="../meshes/stl/Cube.010.stl" scale="0.95238 0.7619 0.03429"/>
         </geometry>
+        <material name="brack"/>
       </visual>
       <collision name="Holder2">
         <origin xyz="0.00045 0 0.01455" rpy="0 0 0"/>
@@ -53,6 +66,7 @@
         <geometry>
           <mesh filename="../meshes/stl/Cube.009.stl" scale="0.95238 0.7619 0.03429"/>
         </geometry>
+        <material name="brack"/>
       </visual>
       <collision name="Holder1">
         <origin xyz="0.00045 0 0.01455" rpy="0 0 0"/>
@@ -73,6 +87,7 @@
         <geometry>
           <mesh filename="../meshes/stl/Cylinder.stl" scale="1.0 1.0 1.0"/>
         </geometry>
+        <material name="white" />
       </visual>
       <collision name="Motor1">
         <origin xyz="0 0 -0.02034" rpy="0 0 0"/>
@@ -93,6 +108,7 @@
         <geometry>
           <mesh filename="../meshes/stl/Cylinder.001.stl" scale="1.0 1.0 1.0"/>
         </geometry>
+        <material name="white" />
       </visual>
       <collision name="Motor2">
         <origin xyz="0 0 -0.02027" rpy="0 0 0"/>
@@ -113,6 +129,7 @@
         <geometry>
           <box size="0.0085 0.0055 0.0525"/>
         </geometry>
+        <material name="wood"/>
       </visual>
       <collision name="Pillar1">
         <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -133,6 +150,7 @@
         <geometry>
           <box size="0.0085 0.0055 0.0525"/>
         </geometry>
+        <material name="wood"/>
       </visual>
       <collision name="Pillar2">
         <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -153,6 +171,7 @@
         <geometry>
           <box size="0.0085 0.0055 0.0525"/>
         </geometry>
+        <material name="wood"/>
       </visual>
       <collision name="Pillar3">
         <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -173,6 +192,7 @@
         <geometry>
           <mesh filename="../meshes/stl/Circle.003.stl" scale="0.075 0.075 0.06329"/>
         </geometry>
+        <material name="wood"/>
       </visual>
       <collision name="upper_disc">
         <origin xyz="0 0 -0.00275" rpy="0 0 0"/>
@@ -193,6 +213,7 @@
         <geometry>
           <mesh filename="../meshes/stl/Torus.stl" scale="0.81132 0.81132 1.89758"/>
         </geometry>
+        <material name="tire" />
       </visual>
       <collision name="Wheel1">
         <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -213,6 +234,7 @@
         <geometry>
           <mesh filename="../meshes/stl/Torus.002.stl" scale="0.81132 0.81132 1.89758"/>
         </geometry>
+        <material name="tire" />
       </visual>
       <collision name="Wheel2">
         <origin xyz="0 0 0" rpy="0 0 0"/>

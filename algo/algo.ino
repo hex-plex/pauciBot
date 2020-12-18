@@ -2,7 +2,7 @@
 
 MotorControl motors[2]={MotorControl(2, 4, 9, 10, 8), MotorControl(3, 5, 12, 11, 13) };
 int encoder_pos[2] = {0,0};
-int setpoints[2]={100,100};
+int setpoints[2]={100,100`};
 
 void enc_0(){
   if(digitalRead(motors[0]._en_2)==HIGH){
