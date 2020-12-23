@@ -6,7 +6,7 @@ p.setAdditionalSearchPath(pybullet_data.getDataPath())
 p.loadURDF("plane.urdf")
 botpos=[0,0,0.1]
 bot = p.loadURDF("urdf/Paucibot.urdf",*botpos)
-#p.setGravity(0,0,-10)
+p.setGravity(0,0,-10)
 numJoints = p.getNumJoints(bot)
 for joint in range(numJoints):
 	print(p.getJointInfo(bot,joint))
@@ -33,7 +33,7 @@ while(1):
 	encoder_pos[1]-=feedback
 	p.setJointMotorControl2(bot, wheels[0], p.POSITION_CONTROL, targetPosition=encoder_pos[0], force=maxForce)# targetVelocity=-max(min(15,feedback),-15),)
 	p.setJointMotorControl2(bot, wheels[1], p.POSITION_CONTROL, targetPosition=encoder_pos[1], force=maxForce)# targetVelocity=-max(min(15,feedback),-15), )
-	print(list(p.getJointState(bot, wheel) for wheel in wheels))
+	#print(list(p.getJointState(bot, wheel) for wheel in wheels))
 	p.stepSimulation()
 	sleep(0.05)
 	init = time()
