@@ -7,6 +7,7 @@ This is turtlebot on two wheels. I have tried to recreate a full working turtleb
 ## Glimpse
 
 <img src="./images/Bot1.jpg" width="400"></img>
+
 <img src="./images/ROS.jpg" width="400"></img>
 These are a few images of the bot
 
