@@ -1,8 +1,13 @@
 # Pauci-Bot
-Recreation of turtle bot as a platform for learning SLAM, DL , RL.
+This is turtlebot on two wheels. I have tried to recreate a full working turtlebot model so that I could use it for testing out many classical and learning based algorithms on it.
 
 ## Setup Guide
-  Cut the chase and go to <a href="/setup_guide.md">here<a/>
+  Cut the chase and go to <a href="/setup_guide.md">here</a>
+
+##Glimpse
+<img src="./images/Bot1.jpg"></img>
+<img src="./images/ROS.jpg"></img>
+These are a few images of the bot
 
 ## Features
 Soon to come
