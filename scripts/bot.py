@@ -22,11 +22,17 @@ class Bot:
                  target_pitch = None,
                  target_yaw = None
                  ):
+        '''
+        This sets expected setpoint for the bot to traverse, if a particular state variable is None then control algo will ignore that as constraint.
+        '''
         if target_pos is None:
             self.target_pos = ((target_x, target_y, target_z), (target_roll, target_pitch, target_yaw))
         else:
             self.target_pos = target_pos
     def control(self):
+        '''
+        This is responsible for the bots control algorithm using PID 
+        '''
         pos, orie = p.getBasePositionAndOrientation(self.id, physicsClientId = self.pClient)
     	euler = p.getEulerFromQuaternion(orie)
         feedback = control_instance(pos, euler)
