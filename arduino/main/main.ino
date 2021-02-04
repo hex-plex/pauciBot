@@ -32,8 +32,8 @@ void pry_callback(MPU9250* imu,float p_r_y[3]){
 void diff_compute(float p_r_y_setpoint[3], float p_r_y_current[3],int motor_setpoint[2]){
   // Implementing simple roll
   float error = (p_r_y_setpoint[1]-p_r_y_current[1]);
-  motor_setpoint[0] -= 75*error;
-  motor_setpoint[1] += 75*error;
+  motor_setpoint[0] -= 50*error;
+  motor_setpoint[1] += 50*error;
 }
 
 void serial_comm(){
@@ -116,6 +116,6 @@ void loop(){
   Serial.print(p_r_y[2]);
   delay(100);
   Serial.print('\n');*/
-  delay(10);
+  delay(25);
   
 }

@@ -17,7 +17,7 @@ MotorControl::MotorControl(int EN_1, int EN_2, int MO_1,int MO_2, int PWM){
 	this->_pwm = PWM;
 	PIDController pos_pid;
 	pos_pid.begin();
-	pos_pid.tune(15, 0 ,2000);
+	pos_pid.tune(100, 0 ,3000);
 	pos_pid.limit(-255,255);
 	this->_pos_pid = pos_pid;
 }
@@ -38,7 +38,7 @@ MotorControl::MotorControl(bool a){
 		this->_pwm = 8;
 		PIDController pos_pid;
 		pos_pid.begin();
-		pos_pid.tune(15, 0 ,2000);
+		pos_pid.tune(100, 0 ,3000);
 		pos_pid.limit(-255,255);
 		this->_pos_pid = pos_pid;
 	} else {
