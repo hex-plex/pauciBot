@@ -1,10 +1,12 @@
 #include "MotorControl.h"
 #include "MPU9250.h"
+#include <PIDController.h>
 #include <Wire.h>
 
 
 MPU9250 IMU(Wire,0x68);
 int status=-1;
+PIDController ori_pid;
 MotorControl motors[2]={MotorControl(2, 4, 9, 10, 8), MotorControl(3, 5, 12, 11, 13) };
 int encoder_pos[2] = {0,0};
 int setpoints[2]={0,0};
@@ -31,9 +33,9 @@ void pry_callback(MPU9250* imu,float p_r_y[3]){
 
 void diff_compute(float p_r_y_setpoint[3], float p_r_y_current[3],int motor_setpoint[2]){
   // Implementing simple roll
-  float error = (p_r_y_setpoint[1]-p_r_y_current[1]);
-  motor_setpoint[0] -= 50*error;
-  motor_setpoint[1] += 50*error;
+  float error = ori_pid.compute(p_r_y_current[1]);
+  motor_setpoint[0] -= error;
+  motor_setpoint[1] += error;
 }
 
 void serial_comm(){
@@ -63,6 +65,12 @@ int turn = 0;
 
 void setup(){
   Serial.begin(9600);
+  
+  ori_pid.begin();
+  ori_pid.tune(200, 0 ,200);
+  ori_pid.limit(-1024,1024);
+
+  ori_pid.setpoint(p_r_y_set[1]);
   //IMU = new MPU9250(Wire,0x68);
   status = IMU.begin();
   if(status<0){
