@@ -13,7 +13,11 @@ int setpoints[2]={0,0};
 float p_r_y[3] = {0,0,0};
 float p_r_y_set[3] = {0,0,0};
 
-void pry_callback(MPU9250* imu,float p_r_y[3]){
+void set_ori(){
+  pry_callback(&IMU, p_r_y_set);
+}
+
+void pry_callback(MPU9250* imu,float &p_r_y[3]){
   imu->readSensor();
   float accelX = imu->getAccelX_mss();
   float accelY = imu->getAccelY_mss();
@@ -31,7 +35,7 @@ void pry_callback(MPU9250* imu,float p_r_y[3]){
   p_r_y[2] = atan2(Yh, Xh);
 }
 
-void diff_compute(float p_r_y_setpoint[3], float p_r_y_current[3],int motor_setpoint[2]){
+void diff_compute(float p_r_y_setpoint[3], float p_r_y_current[3],int &motor_setpoint[2]){
   // Implementing simple roll
   float error = ori_pid.compute(p_r_y_current[1]);
   motor_setpoint[0] -= error;
@@ -67,7 +71,7 @@ void setup(){
   Serial.begin(9600);
   
   ori_pid.begin();
-  ori_pid.tune(200, 0 ,200);
+  ori_pid.tune(250, 0 ,1000);
   ori_pid.limit(-1024,1024);
 
   ori_pid.setpoint(p_r_y_set[1]);
@@ -75,8 +79,9 @@ void setup(){
   status = IMU.begin();
   if(status<0){
     Serial.print("Failed");
+  } else {
+    set_ori();
   }
-  
   attachInterrupt(digitalPinToInterrupt(motors[0]._en_1),enc_0,RISING);
   attachInterrupt(digitalPinToInterrupt(motors[1]._en_1),enc_1,RISING);
   for(int i=0;i<2;i++){
@@ -108,8 +113,8 @@ void loop(){
   float Xh = ( magX * cos(p_r_y[0]) ) + ( magY * sin(p_r_y[1]) * sin(p_r_y[0]) ) + ( magZ * cos(p_r_y[1]) * sin(p_r_y[0]) );
   p_r_y[2] = atan2(Yh, Xh);
   */
-  pry_callback(&IMU,p_r_y);
-  diff_compute(p_r_y_set, p_r_y, setpoints);
+  pry_callback(&IMU,&p_r_y);
+  diff_compute(p_r_y_set, p_r_y, &setpoints);
   for(int i = 0;i<2;i++){
     motors[i].control(setpoints[i]);
     //Serial.print("-");
