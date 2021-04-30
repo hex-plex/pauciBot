@@ -17,12 +17,37 @@
     <gazebo reference="BaseLink">
       <material>Gazebo/Orange</material>
     </gazebo>
-    <gazebo reference="wheel2_link">
+    <gazebo reference="wheel1_link">
       <material>Gazebo/Black</material>
     </gazebo>
     <gazebo reference="wheel2_link">
       <material>Gazebo/Black</material>
     </gazebo>
+    <gazebo reference="Holder1_link">
+      <material>Gazebo/Black</material>
+    </gazebo>
+    <gazebo reference="Holder2_link">
+      <material>Gazebo/Black</material>
+    </gazebo>
+    <gazebo reference="Motor1_link">
+      <material>Gazebo/Black</material>
+    </gazebo>
+    <gazebo reference="Motor2_link">
+      <material>Gazebo/Black</material>
+    </gazebo>
+    <gazebo reference="Pillar1_link">
+      <material>Gazebo/Black</material>
+    </gazebo>
+    <gazebo reference="Pillar2_link">
+      <material>Gazebo/Black</material>
+    </gazebo>
+    <gazebo reference="Pillar3_link">
+      <material>Gazebo/Black</material>
+    </gazebo>
+    <gazebo reference="UpperLink">
+      <material>Gazebo/Black</material>
+    </gazebo>
+
 
     <link name="BaseLink">
       <inertial>
@@ -33,7 +58,7 @@
       <visual name="lower_disc">
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="$(rospack find paucibot)/meshes/stl/Circle.004.stl" scale="0.075 0.075 0.06329"/>
+          <mesh filename="package://paucibot/meshes/stl/Circle.004.stl" scale="0.075 0.075 0.06329"/>
         </geometry>
         <material name="wood"/>
       </visual>
@@ -54,7 +79,7 @@
       <visual name="Holder2">
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="$(rospack find paucibot)/meshes/stl/Cube.010.stl" scale="0.95238 0.7619 0.03429"/>
+          <mesh filename="package://paucibot/meshes/stl/Cube.010.stl" scale="0.95238 0.7619 0.03429"/>
         </geometry>
         <material name="brack"/>
       </visual>
@@ -75,7 +100,7 @@
       <visual name="Holder1">
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="$(rospack find paucibot)/meshes/stl/Cube.009.stl" scale="0.95238 0.7619 0.03429"/>
+          <mesh filename="package://paucibot/meshes/stl/Cube.009.stl" scale="0.95238 0.7619 0.03429"/>
         </geometry>
         <material name="brack"/>
       </visual>
@@ -96,7 +121,7 @@
       <visual name="Motor1">
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="$(rospack find paucibot)/meshes/stl/Cylinder.stl" scale="1.0 1.0 1.0"/>
+          <mesh filename="package://paucibot/meshes/stl/Cylinder.stl" scale="1.0 1.0 1.0"/>
         </geometry>
         <material name="white" />
       </visual>
@@ -117,7 +142,7 @@
       <visual name="Motor2">
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="$(rospack find paucibot)/meshes/stl/Cylinder.001.stl" scale="1.0 1.0 1.0"/>
+          <mesh filename="package://paucibot/meshes/stl/Cylinder.001.stl" scale="1.0 1.0 1.0"/>
         </geometry>
         <material name="white" />
       </visual>
@@ -201,7 +226,7 @@
       <visual name="upper_disc">
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="$(rospack find paucibot)/meshes/stl/Circle.003.stl" scale="0.075 0.075 0.06329"/>
+          <mesh filename="package://paucibot/meshes/stl/Circle.003.stl" scale="0.075 0.075 0.06329"/>
         </geometry>
         <material name="wood"/>
       </visual>
@@ -222,7 +247,7 @@
       <visual name="Wheel1">
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="$(rospack find paucibot)/meshes/stl/Torus.stl" scale="0.81132 0.81132 1.89758"/>
+          <mesh filename="package://paucibot/meshes/stl/Torus.stl" scale="0.81132 0.81132 1.89758"/>
         </geometry>
         <material name="tire" />
       </visual>
@@ -243,7 +268,7 @@
       <visual name="Wheel2">
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="$(rospack find paucibot)/meshes/stl/Torus.002.stl" scale="0.81132 0.81132 1.89758"/>
+          <mesh filename="package://paucibot/meshes/stl/Torus.002.stl" scale="0.81132 0.81132 1.89758"/>
         </geometry>
         <material name="tire" />
       </visual>
