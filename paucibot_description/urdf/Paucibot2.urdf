@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!-- created with Phobos 1.0.1 "Capricious Choutengan" -->
-  <robot name="Paucibot">
+  <robot name="paucibot">
 
     <gazebo>
       <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
@@ -16,7 +16,7 @@
       <visual name="lower_disc">
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://paucibot/meshes/stl/Circle.004.stl" scale="0.075 0.075 0.06329"/>
+          <mesh filename="package://paucibot_description/meshes/stl/Circle.004.stl" scale="0.075 0.075 0.06329"/>
         </geometry>
       </visual>
       <collision name="lower_disc">
@@ -36,7 +36,7 @@
       <visual name="Holder2">
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://paucibot/meshes/stl/Cube.010.stl" scale="0.95238 0.7619 0.03429"/>
+          <mesh filename="package://paucibot_description/meshes/stl/Cube.010.stl" scale="0.95238 0.7619 0.03429"/>
         </geometry>
       </visual>
       <collision name="Holder2">
@@ -56,7 +56,7 @@
       <visual name="Holder1">
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://paucibot/meshes/stl/Cube.009.stl" scale="0.95238 0.7619 0.03429"/>
+          <mesh filename="package://paucibot_description/meshes/stl/Cube.009.stl" scale="0.95238 0.7619 0.03429"/>
         </geometry>
       </visual>
       <collision name="Holder1">
@@ -76,7 +76,7 @@
       <visual name="Motor1">
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://paucibot/meshes/stl/Cylinder.stl" scale="1.0 1.0 1.0"/>
+          <mesh filename="package://paucibot_description/meshes/stl/Cylinder.stl" scale="1.0 1.0 1.0"/>
         </geometry>
       </visual>
       <collision name="Motor1">
@@ -96,7 +96,7 @@
       <visual name="Motor2">
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://paucibot/meshes/stl/Cylinder.001.stl" scale="1.0 1.0 1.0"/>
+          <mesh filename="package://paucibot_description/meshes/stl/Cylinder.001.stl" scale="1.0 1.0 1.0"/>
         </geometry>
       </visual>
       <collision name="Motor2">
@@ -276,7 +276,7 @@
       <visual name="Wheel1">
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://paucibot/meshes/stl/Torus.stl" scale="0.81132 0.81132 1.89758"/>
+          <mesh filename="package://paucibot_description/meshes/stl/Torus.stl" scale="0.81132 0.81132 1.89758"/>
         </geometry>
       </visual>
       <collision name="Wheel1">
@@ -296,7 +296,7 @@
       <visual name="Wheel2">
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://paucibot/meshes/stl/Torus.002.stl" scale="0.81132 0.81132 1.89758"/>
+          <mesh filename="package://paucibot_description/meshes/stl/Torus.002.stl" scale="0.81132 0.81132 1.89758"/>
         </geometry>
       </visual>
       <collision name="Wheel2">

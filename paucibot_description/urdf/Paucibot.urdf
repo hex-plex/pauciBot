@@ -58,7 +58,7 @@
       <visual name="lower_disc">
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://paucibot/meshes/stl/Circle.004.stl" scale="0.075 0.075 0.06329"/>
+          <mesh filename="package://paucibot_description/meshes/stl/Circle.004.stl" scale="0.075 0.075 0.06329"/>
         </geometry>
         <material name="wood"/>
       </visual>
@@ -79,7 +79,7 @@
       <visual name="Holder2">
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://paucibot/meshes/stl/Cube.010.stl" scale="0.95238 0.7619 0.03429"/>
+          <mesh filename="package://paucibot_description/meshes/stl/Cube.010.stl" scale="0.95238 0.7619 0.03429"/>
         </geometry>
         <material name="brack"/>
       </visual>
@@ -100,7 +100,7 @@
       <visual name="Holder1">
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://paucibot/meshes/stl/Cube.009.stl" scale="0.95238 0.7619 0.03429"/>
+          <mesh filename="package://paucibot_description/meshes/stl/Cube.009.stl" scale="0.95238 0.7619 0.03429"/>
         </geometry>
         <material name="brack"/>
       </visual>
@@ -121,7 +121,7 @@
       <visual name="Motor1">
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://paucibot/meshes/stl/Cylinder.stl" scale="1.0 1.0 1.0"/>
+          <mesh filename="package://paucibot_description/meshes/stl/Cylinder.stl" scale="1.0 1.0 1.0"/>
         </geometry>
         <material name="white" />
       </visual>
@@ -142,7 +142,7 @@
       <visual name="Motor2">
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://paucibot/meshes/stl/Cylinder.001.stl" scale="1.0 1.0 1.0"/>
+          <mesh filename="package://paucibot_description/meshes/stl/Cylinder.001.stl" scale="1.0 1.0 1.0"/>
         </geometry>
         <material name="white" />
       </visual>
@@ -226,7 +226,7 @@
       <visual name="upper_disc">
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://paucibot/meshes/stl/Circle.003.stl" scale="0.075 0.075 0.06329"/>
+          <mesh filename="package://paucibot_description/meshes/stl/Circle.003.stl" scale="0.075 0.075 0.06329"/>
         </geometry>
         <material name="wood"/>
       </visual>
@@ -247,7 +247,7 @@
       <visual name="Wheel1">
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://paucibot/meshes/stl/Torus.stl" scale="0.81132 0.81132 1.89758"/>
+          <mesh filename="package://paucibot_description/meshes/stl/Torus.stl" scale="0.81132 0.81132 1.89758"/>
         </geometry>
         <material name="tire" />
       </visual>
@@ -268,7 +268,7 @@
       <visual name="Wheel2">
         <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://paucibot/meshes/stl/Torus.002.stl" scale="0.81132 0.81132 1.89758"/>
+          <mesh filename="package://paucibot_description/meshes/stl/Torus.002.stl" scale="0.81132 0.81132 1.89758"/>
         </geometry>
         <material name="tire" />
       </visual>
