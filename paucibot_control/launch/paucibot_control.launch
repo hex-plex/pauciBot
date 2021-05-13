@@ -9,5 +9,6 @@
         respawn="false" output="screen" >
         <remap from="/joint_states" to="/paucibot/joint_states"/>
     </node>
+    <node name="controller" pkg="paucibot_gazebo" type="stay_up" output="screen" />
 
 </launch>
