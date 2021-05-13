@@ -2,6 +2,11 @@
 <!-- created with Phobos 1.0.1 "Capricious Choutengan" -->
   <robot name="Paucibot">
 
+    <gazebo>
+      <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+        <robotNamespace>/paucibot</robotNamespace>
+      </plugin>
+    </gazebo>
     <link name="BaseLink">
       <inertial>
         <origin xyz="0 0 -0.00275" rpy="0 0 0"/>
@@ -373,7 +378,6 @@
       <parent link="UpperLink"/>
       <child link="UpperPillar3"/>
     </joint>
-
     <joint name="wheel1_link" type="continuous">
       <origin xyz="-0.005 0 -0.0215" rpy="0 0 -1.5708"/>
       <parent link="Holder1_link"/>
@@ -382,6 +386,17 @@
       <limit effort="0.26" velocity="15.708"/>
     </joint>
 
+    <transmission name="simple_trans1">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="wheel1_link">
+       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="wheel1_motor">
+        <mechanicalReducation>50</mechanicalReducation>
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </actuator>
+    </transmission>
+
     <joint name="wheel2_link" type="continuous">
       <origin xyz="0.007 0 0.0354" rpy="0 0 1.5708"/>
       <parent link="Motor2_link"/>
@@ -389,5 +404,17 @@
       <axis xyz="0 0 1.0"/>
       <limit effort="0.26" velocity="15.708"/>
     </joint>
+    
+    
+    <transmission name="simple_trans2">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="wheel2_link">
+       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="wheel2_motor">
+        <mechanicalReducation>50</mechanicalReducation>
+        <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </actuator>
+    </transmission>
 
   </robot>
