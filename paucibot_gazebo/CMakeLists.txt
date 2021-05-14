@@ -11,7 +11,7 @@ find_package(catkin REQUIRED COMPONENTS
     roscpp
     sensor_msgs
     geometry_msgs
-    tf
+    tf2
 )
 
 ## System dependencies are found with CMake's conventions

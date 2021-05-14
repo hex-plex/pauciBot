@@ -20,7 +20,7 @@ double encoder[2] = {0.0, 0.0};
 void update_imu(const sensor_msgs::Imu::ConstPtr& msg){
     geometry_msgs::Quaternion de = msg->orientation;
     tf::Quaternion q(de.x, de.y, de.z, de.w);
-    ROS_INFO("IMU : %f %f %f %f ", de.x, de.y, de.z, de.w);
+    //ROS_INFO("IMU : %f %f %f %f ", de.x, de.y, de.z, de.w);
     tf::Matrix3x3(q).getRPY(pry[0],pry[1],pry[2]);
 }
 
@@ -34,7 +34,7 @@ int main(int argc, char **argv){
 
     ros::NodeHandle nh;
 
-    ros::Subscriber sub = nh.subscribe("imuReading", 1000, update_imu);
+    ros::Subscriber sub = nh.subscribe("/imuReading", 1, update_imu);
     ros::Subscriber sub2 = nh.subscribe("/paucibot/joint_states", 1000, update_encoder);
 
     ros::Publisher left_wheel = nh.advertise<std_msgs::Float64>("/paucibot/wheel1_position_controller/command",1000);
@@ -42,17 +42,17 @@ int main(int argc, char **argv){
 
     double err = 0.0;
 
-    ros::Rate t(100);
+    ros::Rate t(200);
 
     while(ros::ok()){
         err = pry[1] - setpoint[1];
-        ROS_INFO("%f %f %f" , err, pry[1], setpoint[1]);
+        //ROS_INFO("%f %f %f" , err, pry[1], setpoint[1]);
         std_msgs::Float64 val;
-        val.data = encoder[0] + err;
+        val.data = encoder[0] + 0.01*err;
         left_wheel.publish(val);
-        val.data = encoder[1] + err;
+        val.data = encoder[1] + 0.01*err;
         right_wheel.publish(val);
-    
+        ros::spinOnce();
         t.sleep();
     }
 
