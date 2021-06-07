@@ -7,4 +7,6 @@
 
     <node name="pauciBot_spawn" pkg="gazebo_ros" type="spawn_model" output="screen"
         args="-urdf -param robot_description -model Paucibot" />
+
+    <include file="$(find paucibot_control)/launch/paucibot_control.launch"/>
 </launch>
